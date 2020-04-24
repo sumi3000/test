@@ -1,0 +1,141 @@
+#include<bits/stdc++.h>
+using namespace std;
+         
+#define mxi 51
+#define mod 1000000007
+#define f(i,n) for(int i=0;i<n;i++)
+#define f1(i,n) for(int i=1;i<n;i++)
+
+#define r(i,n) for(int i=n-1;i>=0;i--)
+#define fv(a,b,c) for( a=b;a<c;a++)
+#define rv(a,b,c) for( a=b;a>=c;a--)
+#define re return
+#define pb(a) push_back(a)
+#define mvp(a,b) make_pair(a,b)
+#define re return 
+#define fir first
+#define sec second
+#define ll long long int
+#define str string
+#define yes  cout<<"YES"
+#define no    cout<<"NO"
+#define pt(a)    cout<<a<<endl
+#define spt(a)  cout<<a<<" "
+#define nspt(a)  cout<<a
+#define sf(a)    cin>>a
+#define en     cout<<endl
+#define fi(a) for (auto &x : a)
+#define swp(a,b)  cout << fixed << setprecision(a) <<b <<endl; 
+// int dp[51]={0};
+//  bool vis[100001]={0};
+bool sortbysec(const pair<int,int> &a,const pair<int,int> &b){
+    if(a.first==b.first)
+    return (a.sec<b.sec);
+    return(a.first<b.first);
+}
+  
+        
+      
+
+
+// ll myXOR(ll x, ll y) 
+// { 
+//   return (x | y) & (~x | ~y); 
+// } 
+
+// void primeFactors(int n,map<int,int> &mp) 
+// { 
+//     for (int i=1;i<=n;i++) 
+//         if (n%i==0) 
+//             mp[i]++; 
+// } 
+// bool isPrime(int n) 
+// { 
+    
+//     if (n <= 1) 
+//         return false; 
+  
+   
+//     for (int i = 2; i < n; i++) 
+//         if (n % i == 0) 
+//             return false; 
+  
+//     return true; 
+//}
+//int mxi=51;
+int issafe(int x,int y,int n,int m){
+    if(x<0||x>=n||y<0||y>=m)
+    return 0;
+    return 1;
+}
+
+
+
+
+
+int dx[]={0,0,1,-1};
+int dy[]={1,-1,0,0};
+
+
+int main(){
+   int n,m,sum=0;
+   cin>>n>>m;
+   char a[n][m];
+   vector<pair<int,int>> v;
+   f(i,n){
+       f(j,m){
+           cin>>a[i][j];
+           if(a[i][j]=='*'){
+            sum++;
+            v.pb(mvp(i,j));
+           }
+           
+       }
+   }
+   
+   f(i,n){
+       f(j,m){
+           char c=a[i][j];
+           int t=0;
+           if(c=='*'){
+               f(k,4){
+                  int x=i+dx[k];
+                  int y=j+dy[k];
+                  if(issafe(x,y,n,m)&&a[x][y]=='*')
+                  t++;
+                  
+               }
+               if(t==4){
+                  f(l,v.size()){
+                     int x= v[l].fir;
+                     int y=v[l].sec;
+                      if(x!=i&&y!=j){
+                          no;en;
+                          return 0;
+                      }
+                  }
+                  yes;en;
+                  return 0;
+                  
+               }
+           }
+       }
+   }
+   
+   no;en;
+    
+    
+}
+    
+      
+    
+    
+   
+
+   
+    
+
+
+
+
+  
