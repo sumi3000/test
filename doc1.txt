@@ -77,55 +77,7 @@ int dx[]={0,0,1,-1};
 int dy[]={1,-1,0,0};
 
 
-int main(){
-   int n,m,sum=0;
-   cin>>n>>m;
-   char a[n][m];
-   vector<pair<int,int>> v;
-   f(i,n){
-       f(j,m){
-           cin>>a[i][j];
-           if(a[i][j]=='*'){
-            sum++;
-            v.pb(mvp(i,j));
-           }
-           
-       }
-   }
-   
-   f(i,n){
-       f(j,m){
-           char c=a[i][j];
-           int t=0;
-           if(c=='*'){
-               f(k,4){
-                  int x=i+dx[k];
-                  int y=j+dy[k];
-                  if(issafe(x,y,n,m)&&a[x][y]=='*')
-                  t++;
-                  
-               }
-               if(t==4){
-                  f(l,v.size()){
-                     int x= v[l].fir;
-                     int y=v[l].sec;
-                      if(x!=i&&y!=j){
-                          no;en;
-                          return 0;
-                      }
-                  }
-                  yes;en;
-                  return 0;
-                  
-               }
-           }
-       }
-   }
-   
-   no;en;
-    
-    
-}
+this is c++ code
     
       
     
