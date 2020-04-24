@@ -79,7 +79,7 @@ int dy[]={1,-1,0,0};
 
 this is c++ code
 for codeforces questions
-    
+its good to mention 
       
     
     
